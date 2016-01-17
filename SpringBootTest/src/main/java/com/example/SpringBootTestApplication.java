@@ -4,18 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-import com.example.domain.User;
 import com.example.repository.UserRepository;
 
 
 @EnableAutoConfiguration
 @ComponentScan
-public class SpringBootTestApplication implements CommandLineRunner{
+public class SpringBootTestApplication extends SpringBootServletInitializer implements CommandLineRunner{
 	@Autowired
     MessageSource messageSource;
 
@@ -29,6 +30,11 @@ public class SpringBootTestApplication implements CommandLineRunner{
 	@Override
 	public void run(String... arg0) throws Exception {
 //		userRepository.save(new User(null, "hoge", "pass", "0"));
+	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(SpringBootTestApplication.class);
 	}
 
 	/**

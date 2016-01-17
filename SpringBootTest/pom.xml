@@ -56,7 +56,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- tomcat -->
+		<!-- tomcat for create war file -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -92,6 +92,7 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 	</dependencies>
 	
 	<build>
